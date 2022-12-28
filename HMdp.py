@@ -3,33 +3,22 @@ conn=sqlite3.connect("MDBA.db")
 print("DATABASE CONNECTION SUCCESSFUL")
 
 
-#conn.execute("Drop table if EXISTS PATIENT")
+conn.execute("Drop table if EXISTS PATIENT")
 #conn.execute("Drop table if EXISTS CONTACT_NO")
 #conn.execute("Drop table if EXISTS ROOM")
 #conn.execute("Drop table if EXISTS TREATMENT")
 #conn.execute("Drop table if EXISTS MEDICINE")
 
-conn.execute("""Create table PATIENT
+conn.execute("""CREATE table PATIENT
            (PATIENT_ID int(10) primary key,
            NAME VARCHAR(20) not null,
-          SEX varchar(10) not null,
-         BLOOD_GROUP varchar(5) not null,
-        DOB date not null,
-       ADDRESS varcahr(100) not null,
-             CONSULT_TEAM varchar(50) not null,
-             EMAIL varchar(20) not null
+          SEX varchar(10) not null
              )""")
 print("TABLE CREATED SUCCESSFULLY")
 
-conn.execute("""CREATE TABLE CONTACT_NO
-            (PATIENT_ID int(10) PRIMARY KEY,
-             CONTACTNO int(15) not null,
-             ALT_CONTACT int(15),
-             FOREIGN KEY(PATIENT_ID) REFERENCES PATIENT(PATIENT_ID))
-            """)
-print("TABLE CREATED SUCCESSFULLY")
+ 
 
-conn.execute("""Create table ROOM
+conn.execute("""CREATE table ROOM
             (PATIENT_ID int(10)not NULL ,
              ROOM_NO varchar(20) PRIMARY KEY ,
              ROOM_TYPE varchar(10) not null,

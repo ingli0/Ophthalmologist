@@ -78,9 +78,9 @@ def IN_PAT():
     pp8=pat_address.get()
     pp9=pat_CT.get()
     pp10=pat_email.get()"""
-    conn.execute('INSERT INTO PATIENT VALUES(?,?,?,?,?,?,?,?)',(pp1,pp2,pp3,))
-    conn.execute('INSERT INTO CONTACT_NO VALUES (?,?,?)',(pp1,))
-    tkinter.messagebox.showinfo("MEDANTA DATABSE SYSTEM","DETAILS INSERTED INTO DATABASE")
+    conn.execute('INSERT INTO PATIENT VALUES(?,?,?)',(pp1,pp2,pp3,))
+    
+    tkinter.messagebox.showinfo("ΒΑΣΗ ΔΕΔΟΜΕΝΩΝ","ΕΠΙΤΥΧΗΣ ΕΓΓΡΑΦΗ ΑΣΘΕΝΗ")
     conn.commit()
 
 
@@ -124,9 +124,9 @@ def PAT():
     pat_name = tkinter.Entry(rootp)
     sex=tkinter.Label(rootp,text="Ασφάλιση")
     pat_sex=tkinter.Entry(rootp)
-    dob=tkinter.Label(rootp, text="DOB (YYYY-MM-DD)")
+    """dob=tkinter.Label(rootp, text="DOB (YYYY-MM-DD)")
     pat_dob=tkinter.Entry(rootp)
-    """bg=tkinter.Label(rootp, text="BLOOD GROUP")
+    bg=tkinter.Label(rootp, text="BLOOD GROUP")
     pat_BG=tkinter.Entry(rootp)
     c1=tkinter.Label(rootp, text="CONTACT NUMBER")
     pat_contact=tkinter.Entry(rootp)

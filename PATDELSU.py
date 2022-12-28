@@ -12,8 +12,8 @@ searchB=None
 #display/search button
 
 def Search_button():
-    global inp_s,entry,errorS,t,i,q,dis1,dis2,dis3,dis4,dis5,dis6,dis7,dis8,dis9,dis10
-    global l1,l2,l3,l4,l5,l6,l7,l8,l9,l10
+    global inp_s,entry,errorS,t,i,dis1,dis2,dis3 
+    global l1,l2,l3 
     c1=conn.cursor()
     inp_s=entry.get()
     p=list(c1.execute('select * from PATIENT where PATIENT_ID=?',(inp_s,)))
@@ -21,103 +21,47 @@ def Search_button():
         errorS=tkinter.Label(rootS,text="PATIENT RECORD NOT FOUND")
         errorS.pack()
     else:
-        t=c1.execute('SELECT * FROM PATIENT NATURAL JOIN CONTACT_NO where PATIENT_ID=?',(inp_s,));
+        t=c1.execute('SELECT * FROM PATIENT where PATIENT_ID=?',(inp_s,));
         for i in t:
-            l1=tkinter.Label(rootS,text="PATIENT ID",fg='blue')
+            l1=tkinter.Label(rootS,text="ΑΜΚΑ",fg='blue')
             dis1=tkinter.Label(rootS,text=i[0])
-            l2=tkinter.Label(rootS,text="PATIENT NAME",fg='blue')
+            l2=tkinter.Label(rootS,text="ΟΝΟΜΑΤΕΠΩΝΥΜΟ ΑΣΘΕΝΗ",fg='blue')
             dis2=tkinter.Label(rootS,text=i[1])
-            l3=tkinter.Label(rootS,text="PATIENT SEX",fg='blue')
+            l3=tkinter.Label(rootS,text="ΑΣΦΑΛΕΙΑ ΑΣΘΕΝΗ",fg='blue')
             dis3=tkinter.Label(rootS,text=i[2])
-            l4=tkinter.Label(rootS,text="PATIENT BLOOD GROUP",fg='blue')
-            dis4=tkinter.Label(rootS,text=i[3])
-            l5=tkinter.Label(rootS,text="PATIENT DATE OF BIRTH",fg='blue')
-            dis5=tkinter.Label(rootS,text=i[4])
-            l6=tkinter.Label(rootS,text="PATIENT ADDRESS",fg='blue')
-            dis6=tkinter.Label(rootS,text=i[5])
-            l7=tkinter.Label(rootS,text="PATIENT DOCTOR/TEAM",fg='blue')
-            dis7=tkinter.Label(rootS,text=i[6])
-            l8=tkinter.Label(rootS,text="PATIENT EMAIL",fg='blue')
-            dis8=tkinter.Label(rootS,text=i[7])
-            l9=tkinter.Label(rootS,text="PATEINT CONTACT NO",fg='blue')
-            dis9=tkinter.Label(rootS,text=i[8])
-            l10=tkinter.Label(rootS,text="PATIENT ALTERNATE CONTACT",fg='blue')
-            dis10=tkinter.Label(rootS,text=i[9])
             l1.pack()
             dis1.pack()
             l2.pack()
             dis2.pack()
             l3.pack()
             dis3.pack()
-            l4.pack()
-            dis4.pack()
-            l5.pack()
-            dis5.pack()
-            l6.pack()
-            dis6.pack()
-            l7.pack()
-            dis7.pack()
-            l8.pack()
-            dis8.pack()
-            l9.pack()
-            dis9.pack()
-            l10.pack()
-            dis10.pack()
             conn.commit()
 
 
 def Search_button2():
-    global inp_s,entry,errorS,t,i,q,dis1,dis2,dis3,dis4,dis5,dis6,dis7,dis8,dis9,dis10
+    global inp_s,entry,errorS,t,i,q,dis1,dis2,dis3 
     global l1,l2,l3,l4,l5,l6,l7,l8,l9,l10
     c1=conn.cursor()
     inp_s=entry.get()
     p=list(c1.execute('select * from PATIENT where NAME=?',(inp_s,)))
     if (len(p)==0):
-        errorS=tkinter.Label(rootS,text="PATIENT RECORD NOT FOUND")
+        errorS=tkinter.Label(rootS,text=" RECORD NOT FOUND")
         errorS.pack()
     else:
-        t=c1.execute('SELECT * FROM PATIENT NATURAL JOIN CONTACT_NO where NAME=?',(inp_s,));
+        t=c1.execute('SELECT * FROM PATIENT where NAME=?',(inp_s,));
         for i in t:
-            l1=tkinter.Label(rootS,text="PATIENT ID",fg='blue')
+            l1=tkinter.Label(rootS,text="ΑΜΚΑ",fg='blue')
             dis1=tkinter.Label(rootS,text=i[0])
-            l2=tkinter.Label(rootS,text="PATIENT NAME",fg='blue')
+            l2=tkinter.Label(rootS,text="ΟΝΟΜΑΤΕΠΩΝΥΜΟ ΑΣΘΕΝΗ",fg='blue')
             dis2=tkinter.Label(rootS,text=i[1])
-            l3=tkinter.Label(rootS,text="PATIENT SEX",fg='blue')
+            l3=tkinter.Label(rootS,text="ΑΣΦΑΛΕΙΑ ΑΣΘΕΝΗ",fg='blue')
             dis3=tkinter.Label(rootS,text=i[2])
-            l4=tkinter.Label(rootS,text="PATIENT BLOOD GROUP",fg='blue')
-            dis4=tkinter.Label(rootS,text=i[3])
-            l5=tkinter.Label(rootS,text="PATIENT DATE OF BIRTH",fg='blue')
-            dis5=tkinter.Label(rootS,text=i[4])
-            l6=tkinter.Label(rootS,text="PATIENT ADDRESS",fg='blue')
-            dis6=tkinter.Label(rootS,text=i[5])
-            l7=tkinter.Label(rootS,text="PATIENT DOCTOR/TEAM",fg='blue')
-            dis7=tkinter.Label(rootS,text=i[6])
-            l8=tkinter.Label(rootS,text="PATIENT EMAIL",fg='blue')
-            dis8=tkinter.Label(rootS,text=i[7])
-            l9=tkinter.Label(rootS,text="PATEINT CONTACT NO",fg='blue')
-            dis9=tkinter.Label(rootS,text=i[8])
-            l10=tkinter.Label(rootS,text="PATIENT ALTERNATE CONTACT",fg='blue')
-            dis10=tkinter.Label(rootS,text=i[9])
             l1.pack()
             dis1.pack()
             l2.pack()
             dis2.pack()
             l3.pack()
             dis3.pack()
-            l4.pack()
-            dis4.pack()
-            l5.pack()
-            dis5.pack()
-            l6.pack()
-            dis6.pack()
-            l7.pack()
-            dis7.pack()
-            l8.pack()
-            dis8.pack()
-            l9.pack()
-            dis9.pack()
-            l10.pack()
-            dis10.pack()
             conn.commit()
 
 
