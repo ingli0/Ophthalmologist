@@ -43,7 +43,7 @@ def Entry():
     passbox = tkinter.Entry(bottomframe,show="*")
     login = tkinter.Button(bottomframe, text="LOGIN", command=GET,font="arial 8 bold")
     heading.pack()
-    username.pack()
+    username.pack() 
     userbox.pack()
     password.pack()
     passbox.pack()

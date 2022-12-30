@@ -4,10 +4,11 @@ print("DATABASE CONNECTION SUCCESSFUL")
 
 
 conn.execute("Drop table if EXISTS PATIENT")
-#conn.execute("Drop table if EXISTS CONTACT_NO")
-#conn.execute("Drop table if EXISTS ROOM")
-#conn.execute("Drop table if EXISTS TREATMENT")
-#conn.execute("Drop table if EXISTS MEDICINE")
+conn.execute("Drop table if EXISTS CONTACT_NO")
+conn.execute("Drop table if EXISTS ROOM")
+conn.execute("Drop table if EXISTS TREATMENT")
+conn.execute("Drop table if EXISTS MEDICINE")
+conn.execute("Drop table if EXISTS employee")
 
 conn.execute("""CREATE table PATIENT
            (PATIENT_ID int(10) primary key,
@@ -48,8 +49,8 @@ conn.execute("""CREATE TABLE MEDICINE
              """)
 #print("MEDICINE CREATED")
 
-conn.execute("""create table employee
-            (EMP_ID varchar(10) primary key,
+conn.execute("""CREATE table employee
+            (PATIENT_ID varchar(10) primary key,
              EMP_NAME varchar(20)not null,
              SEX varchar(10) not null,
              AGE int(5) not null,
@@ -57,11 +58,13 @@ conn.execute("""create table employee
              SAL float(10) not null,
              EXP varchar(100) not null,
              EMAIL varcahr(20) not null,
-            PHONE int(12))""")
-
+             PHONE int(12) not null,
+             idapo int(12) not null,
+            FOREIGN KEY (PATIENT_ID) REFERENCES PATIENT(PATIENT_ID)
+)""")
 print ("EMPLOYEE CREATED")
 
-#conn.execute("DROP TABLE if EXISTS appointment")
+conn.execute("DROP TABLE if EXISTS appointment")
 conn.execute("""create table appointment
             (
              PATIENT_ID int(20) not null,
