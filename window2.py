@@ -41,7 +41,7 @@ def menu():
     root1.title("ΚΥΡΙΟ ΜΕΝΟΥ")
     m=tkinter.Label(root1,text="ΜΕΝΟΥ",fg='blue',font='Times 16 bold italic',bg='black')
     button1=tkinter.Button(root1,text="1.ΕΓΓΡΑΦΗ ΑΣΘΕΝΗ",command=PAT,bg='light blue',fg='black')
-    button2 = tkinter.Button(root1, text="2.ROOM ALLOCATION",bg='light green',fg='black',command=Room_all)
+    button2 = tkinter.Button(root1, text="2.ΦΑΡΜΑΚΕΥΤΙΚΗ ΑΓΩΓΗ",bg='light green',fg='black',command=Room_all)
     button3 = tkinter.Button(root1, text="3.ΠΡΟΣΘΗΚΗ ΑΠΟΤΕΛΕΣΜΑΤΩΝ",bg='light blue',fg='black',command=emp_screen)
     button4 = tkinter.Button(root1, text="4.ΠΡΟΣΘΗΚΗ ΡΑΝΤΕΒΟΥ",bg='light green',fg='black',command=appo)
     button5 = tkinter.Button(root1, text="5.PATIENT BILL",bg='light blue',fg='black',command=BILLING)
@@ -59,6 +59,24 @@ def menu():
     button5.place(x=80,y=250)
     button6.pack(side=tkinter.TOP)
     button6.place(x=80,y=300)
+    root1.mainloop()
+
+def menu2():
+    global root1,button7,button8,button9,button10,button11,n,button12
+    root1=tkinter.Tk()
+    root1.geometry("280x350")
+    root1.title("ΚΥΡΙΟ ΜΕΝΟΥ")
+    n=tkinter.Label(root1,text="ΜΕΝΟΥ",fg='blue',font='Times 16 bold italic',bg='black')
+    button7=tkinter.Button(root1,text="1.ΕΓΓΡΑΦΗ ΑΣΘΕΝΗ",command=PAT,bg='light blue',fg='black')
+    button10 = tkinter.Button(root1, text="4.ΠΡΟΣΘΗΚΗ ΡΑΝΤΕΒΟΥ",bg='light green',fg='black',command=appo)
+    button12 = tkinter.Button(root1, text="6.ΕΞΟΔΟΣ",command=ex,bg='light green',fg='black')
+    n.place(x=75,y=5)
+    button7.pack(side=tkinter.TOP)
+    button7.place(x=80,y=50)
+    button10.pack(side=tkinter.TOP)
+    button10.place(x=80, y=100)
+    button12.pack(side=tkinter.TOP)
+    button12.place(x=80,y=150)
     root1.mainloop()
 
 p=None
@@ -139,6 +157,7 @@ def PAT():
     addr=tkinter.Label(rootp, text="ADDRESS")
     pat_address=tkinter.Entry(rootp)
     """
+    
     back=tkinter.Button(rootp,text="<< ΠΙΣΩ",command=menu)
     SEARCH=tkinter.Button(rootp,text="  ΑΝΑΖΉΤΗΣΗ ΑΜΚΑ >>  ",command=P_display)
     SEARCH2=tkinter.Button(rootp,text="  ΑΝΑΖΉΤΗΣΗ ΟΝΟΜ/ΝΥΜΟ >>  ",command=P_display2)

@@ -4,50 +4,47 @@ conn=sqlite3.connect("MDBA.db")
 rootAA=None
 
 def set():
-    global e3,e1,e2,e4,e5,e6,conn
+    global e3,e1,e4,e5,e6,conn
     p1=e1.get()
-    p2=e2.get()
+    
     p3=e3.get(tkinter.ACTIVE)
     p4=e4.get()
     p5=e5.get()
     p6=e6.get(1.0,tkinter.END)
     conn = sqlite3.connect("MDBA.db")
-    conn.execute("Insert into appointment values(?,?,?,?,?,?)",(p1,p2,p3,p4,p5,p6,))
+    conn.execute("Insert into appointment values(?,?,?,?,?)",(p1,p3,p4,p5,p6,))
     conn.commit()
     tkinter.messagebox.showinfo("MEDANTA DATABASE SYSTEM", "APPOINTMENT SET SUCCSESSFULLY")
 
 
 def appo():
-    global rootAA,L,e1,e2,e3,e4,e5,e6
+    global rootAA,L,e1,e3,e4,e5,e6
     rootAA=tkinter.Tk()
     rootAA.geometry("500x550")
     rootAA.title("APPOINTMENTS")
     H=tkinter.Label(rootAA,text="APOINTMENTS",fg="blue",font="Arial 10 bold")
     H.place(x=55,y=5)
-    l1=tkinter.Label(rootAA,text="PATIENT ID")
-    l1.place(x=20,y=30)
+    l1=tkinter.Label(rootAA,text="ΑΜΚΑ ΑΣΘΕΝΗ")
+    l1.place(x=20,y=60)
     e1=tkinter.Entry(rootAA)
-    e1.place(x=100,y=30)
-    l2 = tkinter.Label(rootAA,text="DOCTOR ID")
-    l2.place(x=20,y=60)
-    e2 = tkinter.Entry(rootAA)
-    e2.place(x=110, y=60)
-    l3 = tkinter.Label(rootAA,text="APPOINTMENT NO")
+    e1.place(x=150,y=60)
+    
+    l3 = tkinter.Label(rootAA,text="ΝΟΥΜΕΡΟ ΡΑΝΤΕΒΟΥ")
     l3.place(x=20,y=90)
     L=['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14','A15','A16','A17','A18','A19','A20','A21','A22','A23','A24','A25','A26','A27','A28','A29','A30','A31','A32','A33','A34','A35','A36','A37','A38','A39','A40','A41','A42','A43','A44','A45','A46','A47','A48','A49','A50']
     e3=tkinter.Listbox(rootAA, width=15, height=1, selectmode='SINGLE', exportselection=0)
     for jjj in L:
         e3.insert(tkinter.END, jjj)
-    e3.place(x=140,y=90)
-    l4 = tkinter.Label(rootAA,text="APPOINTMENT TIME(HH:MM:SS)")
+    e3.place(x=170,y=90)
+    l4 = tkinter.Label(rootAA,text="ΩΡΑ ΡΑΝΤΕΒΟΥ(HH:MM:SS)")
     l4.place(x=20,y=120)
     e4=tkinter.Entry(rootAA)
     e4.place(x=20,y=145)
-    l5 = tkinter.Label(rootAA,text="APPOINTMENT DATE(YYYY-MM-DD)")
+    l5 = tkinter.Label(rootAA,text="ΗΜΕΡΟΜΙΝΙΑ ΡΑΝΤΕΒΟΥ(YYYY-MM-DD)")
     l5.place(x=20,y=170)
     e5=tkinter.Entry(rootAA)
     e5.place(x=20,y=195)
-    l6=tkinter.Label(rootAA,text="DESCRIPTION")
+    l6=tkinter.Label(rootAA,text="ΠΕΡΙΓΡΑΦΗ")
     l6.place(x=20,y=220)
     e6=tkinter.Text(rootAA,width=20,height=3)
     e6.place(x=20,y=240)
@@ -55,11 +52,11 @@ def appo():
     scrollbar.place(x=235, y=90)
     e3.config(yscrollcommand=scrollbar.set)
     scrollbar.configure(command=e3.yview)
-    b1=tkinter.Button(rootAA,text="SET APPOINTMENT",command=set)
+    b1=tkinter.Button(rootAA,text="ΑΠΟΘΗΚΕΥΣΗ ΡΑΝΤΕΒΟΥ",command=set)
     b1.place(x=20,y=310)
-    b2=tkinter.Button(rootAA,text="Delete Appointment",command=dela)
+    b2=tkinter.Button(rootAA,text="ΔΙΑΓΡΑΦΗ ΡΑΝΤΕΒΟΥ",command=dela)
     b2.place(x=180,y=310)
-    b4=tkinter.Button(rootAA,text="TODAYS APPOINTMENTS",command=va)
+    b4=tkinter.Button(rootAA,text="ΣΗΜΕΡΙΝΑ ΡΑΝΤΕΒΟΥ",command=va)
     b4.place(x=320,y=310)
     rootAA.mainloop()
 

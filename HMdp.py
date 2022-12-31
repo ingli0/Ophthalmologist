@@ -22,10 +22,10 @@ print("TABLE CREATED SUCCESSFULLY")
 conn.execute("""CREATE table ROOM
             (PATIENT_ID int(10)not NULL ,
              ROOM_NO varchar(20) PRIMARY KEY ,
-             ROOM_TYPE varchar(10) not null,
-             RATE int(10) not null,
+             farmaka varchar(10) not null,
+             disease varchar(20) not null,
              DATE_ADMITTED date,
-             DATE_DISCHARGED date NULL,
+             outcome varchar(40) NULL,
              FOREIGN KEY(PATIENT_ID) REFERENCES PATIENT(PATIENT_ID)
              );
             """)
@@ -65,15 +65,14 @@ conn.execute("""CREATE table employee
 print ("EMPLOYEE CREATED")
 
 conn.execute("DROP TABLE if EXISTS appointment")
-conn.execute("""create table appointment
+conn.execute("""CREATE table appointment
             (
              PATIENT_ID int(20) not null,
-             EMP_ID varchar(10) not null,
              AP_NO varchar(10) primary key,
              AP_TIME time,
              AP_DATE date,
              description varchar(100),
-            foreign key(PATIENT_ID) references patient(PATIENT_ID),
-            foreign key(EMP_ID) references doctor(EMP_ID));""")
+             foreign key(PATIENT_ID) references patient(PATIENT_ID)
+            );""")
 
 print("APPOINTMENT CREATED")

@@ -1,5 +1,6 @@
 import tkinter
 from window2 import menu
+from window2 import menu2
 
 #root=login page
 #root1=menu
@@ -14,14 +15,23 @@ bottomframe=None
 frame3=None
 login=None
 #command for login button
+def flaga():
+      global flag
+      flag = 0
+
 def GET():
     global userbox,passbox,error
     S1=userbox.get()
     S2=passbox.get()
     if(S1=='ingli' and S2=='paxidi'):
+        flag=1
         menu()
     elif(S1=='1' and S2=='2'):
+        flag=1
         menu()
+    elif(S1=='2' and S2=='3'):
+        flag=2
+        menu2()
     else:
         error=tkinter.Label(bottomframe,text="ΛΑΘΟΣ  ΟΝΟΜΑ ΧΡΗΣΤΗ / ΚΩΔΙΚΟΣ \n ΔΟΚΙΜΑΣΕ ΞΑΝΑ",fg="red",font="bold")
         error.pack()
