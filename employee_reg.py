@@ -5,10 +5,10 @@ var=None
 
 
 def inp():
-    global e1,e2,e3,e4,e5,e6,e7,e8,e9,var
+    global e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,var
     e1=t1.get()
     e2=t2.get()
-    e3=str(var.get())
+    e3=t10.get()
     e4=t3.get()
     e5=t9.get()
     e6=t4.get()
@@ -16,8 +16,9 @@ def inp():
     e8=t6.get()
     e9=t7.get()
     e10=t9.get()
+    e11=t11.get()
     conn = sqlite3.connect("MDBA.db")
-    conn.execute("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?)",(e1,e2,e3,e4,e5,e6,e7,e8,e9,e10))
+    conn.execute("INSERT INTO employee VALUES(?,?,?,?,?,?,?,?,?,?,?)",(e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11))
     conn.commit()
     tkinter.messagebox.showinfo("MEDANTA DATABASE SYSTEM", "EMPLOYEE DATA ADDED")
 
@@ -25,7 +26,7 @@ def ex():
     rootE.destroy()
 
 def emp_screen():
-    global rootE,t1,t2,r1,r2,t3,lb,t4,t5,t6,t7,var,t8,t9,t10
+    global rootE,t1,t2,r1,r2,t3,lb,t4,t5,t6,t7,var,t8,t9,t10,t11,t12
     rootE=tkinter.Tk()
     rootE.title("AΠΟΤΕΛΕΣΜΑΤΑ ΕΞΕΤΑΣΕΩΝ")
     rootE.geometry('400x400')
@@ -61,6 +62,13 @@ def emp_screen():
     t7=tkinter.Entry(rootE)
     t7.place(x=240,y=290)
 
+    l12 = tkinter.Label(rootE, text="ΗΜΕΡΟΜΗΝΙΑ")
+    l12.place(x=50,y=320)
+    t11=tkinter.Entry(rootE)
+    t11.place(x=240,y=320)
+
+    
+
     l10 = tkinter.Label(rootE, text="ID ΡΑΝΤΕΒΟΥ")
     l10.place(x=50,y=170)
     t9=tkinter.Entry(rootE)
@@ -72,11 +80,11 @@ def emp_screen():
     t10.place(x=240,y=110)
 
     b1=tkinter.Button(rootE,text="SAVE",command=inp)
-    b1.place(x=60,y=320)
+    b1.place(x=60,y=350)
     b2=tkinter.Button(rootE,text="DELETE EMPLOYEE",command=delo)
-    b2.place(x=110,y=320)
+    b2.place(x=110,y=350)
     b3=tkinter.Button(rootE,text="EXIT",command=ex)
-    b3.place(x=230,y=320)
+    b3.place(x=230,y=350)
     rootE.mainloop()
 
 def delling():

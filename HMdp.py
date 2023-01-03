@@ -50,16 +50,17 @@ conn.execute("""CREATE TABLE MEDICINE
 #print("MEDICINE CREATED")
 
 conn.execute("""CREATE table employee
-            (PATIENT_ID varchar(10) primary key,
-             EMP_NAME varchar(20)not null,
-             SEX varchar(10) not null,
-             AGE int(5) not null,
-             DESIG varchar(20) not null,
-             SAL float(10) not null,
-             EXP varchar(100) not null,
-             EMAIL varcahr(20) not null,
-             PHONE int(12) not null,
-             idapo int(12) not null,
+            (PATIENT_ID varchar(10) not null,
+             EMP_NAME  DECIMAL(10,3) not null,
+             SEX DECIMAL(10,3) not null,
+             AGE DECIMAL(10,3) not null,
+             DESIG DECIMAL(10,3) not null,
+             SAL DECIMAL(10,3) not null,
+             EXP DECIMAL(10,3) not null,
+             EMAIL DECIMAL(10,3) not null,
+             PHONE DECIMAL(10,3) not null,
+             idapo DECIMAL(10,3) not null,
+             MERA DATE not null,
             FOREIGN KEY (PATIENT_ID) REFERENCES PATIENT(PATIENT_ID)
 )""")
 print ("EMPLOYEE CREATED")
@@ -68,7 +69,7 @@ conn.execute("DROP TABLE if EXISTS appointment")
 conn.execute("""CREATE table appointment
             (
              PATIENT_ID int(20) not null,
-             AP_NO varchar(10) primary key,
+             AP_NO varchar(10) ,
              AP_TIME time,
              AP_DATE date,
              description varchar(100),

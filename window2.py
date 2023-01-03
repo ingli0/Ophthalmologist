@@ -62,14 +62,14 @@ def menu():
     root1.mainloop()
 
 def menu2():
-    global root1,button7,button8,button9,button10,button11,n,button12
+    global root1,button7,button10,n,button12
     root1=tkinter.Tk()
     root1.geometry("280x350")
     root1.title("ΚΥΡΙΟ ΜΕΝΟΥ")
     n=tkinter.Label(root1,text="ΜΕΝΟΥ",fg='blue',font='Times 16 bold italic',bg='black')
     button7=tkinter.Button(root1,text="1.ΕΓΓΡΑΦΗ ΑΣΘΕΝΗ",command=PAT,bg='light blue',fg='black')
-    button10 = tkinter.Button(root1, text="4.ΠΡΟΣΘΗΚΗ ΡΑΝΤΕΒΟΥ",bg='light green',fg='black',command=appo)
-    button12 = tkinter.Button(root1, text="6.ΕΞΟΔΟΣ",command=ex,bg='light green',fg='black')
+    button10 = tkinter.Button(root1, text="2.ΠΡΟΣΘΗΚΗ ΡΑΝΤΕΒΟΥ",bg='light green',fg='black',command=appo)
+    button12 = tkinter.Button(root1, text="3.ΕΞΟΔΟΣ",command=ex,bg='light green',fg='black')
     n.place(x=75,y=5)
     button7.pack(side=tkinter.TOP)
     button7.place(x=80,y=50)
@@ -82,20 +82,12 @@ def menu2():
 p=None
 #input patient form
 def IN_PAT():
-    global pp1, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10,ce1,conn
+    global pp1, pp2, pp3,conn
     conn=sqlite3.connect("MDBA.db")
     conn.cursor()
     pp1=pat_ID.get()
     pp2=pat_name.get()
     pp3=pat_sex.get()
-    """
-    pp4=pat_BG.get()
-    pp5=pat_dob.get()
-    pp6=pat_contact.get()
-    pp7=pat_contactalt.get()
-    pp8=pat_address.get()
-    pp9=pat_CT.get()
-    pp10=pat_email.get()"""
     conn.execute('INSERT INTO PATIENT VALUES(?,?,?)',(pp1,pp2,pp3,))
     
     tkinter.messagebox.showinfo("ΒΑΣΗ ΔΕΔΟΜΕΝΩΝ","ΕΠΙΤΥΧΗΣ ΕΓΓΡΑΦΗ ΑΣΘΕΝΗ")
@@ -114,14 +106,14 @@ def nothing1():
     print("MADE BY BHAVIYA BATRA")
 
 #PATIENT FORM
-back=None
+ 
 SEARCH=None
 DELETE=None
 UPDATE=None
 
 def PAT():
     global pat_address, pat_BG, pat_contact, pat_contactalt, pat_CT, pat_dob, pat_email, pat_ID, pat_name, pat_sex
-    global rootp,regform,id,name,dob,sex,email,ct,addr,c1,c2,bg,SUBMIT,menubar,filemenu,back,SEARCH,DELETE,UPDATE
+    global rootp,regform,id,name,dob,sex,email,ct,addr,c1,c2,bg,SUBMIT,menubar,filemenu, SEARCH,DELETE,UPDATE
     rootp=tkinter.Tk()
     rootp.title("MEDANTA PATIENT FORM")
     menubar=tkinter.Menu(rootp)
@@ -142,23 +134,7 @@ def PAT():
     pat_name = tkinter.Entry(rootp)
     sex=tkinter.Label(rootp,text="Ασφάλιση")
     pat_sex=tkinter.Entry(rootp)
-    """dob=tkinter.Label(rootp, text="DOB (YYYY-MM-DD)")
-    pat_dob=tkinter.Entry(rootp)
-    bg=tkinter.Label(rootp, text="BLOOD GROUP")
-    pat_BG=tkinter.Entry(rootp)
-    c1=tkinter.Label(rootp, text="CONTACT NUMBER")
-    pat_contact=tkinter.Entry(rootp)
-    c2=tkinter.Label(rootp, text="ALTERNATE CONTACT")
-    pat_contactalt=tkinter.Entry(rootp)
-    email=tkinter.Label(rootp, text="EMAIL")
-    pat_email = tkinter.Entry(rootp)
-    ct=tkinter.Label(rootp,text="CONSULTING TEAM / DOCTOR")
-    pat_CT=tkinter.Entry(rootp)
-    addr=tkinter.Label(rootp, text="ADDRESS")
-    pat_address=tkinter.Entry(rootp)
-    """
-    
-    back=tkinter.Button(rootp,text="<< ΠΙΣΩ",command=menu)
+     
     SEARCH=tkinter.Button(rootp,text="  ΑΝΑΖΉΤΗΣΗ ΑΜΚΑ >>  ",command=P_display)
     SEARCH2=tkinter.Button(rootp,text="  ΑΝΑΖΉΤΗΣΗ ΟΝΟΜ/ΝΥΜΟ >>  ",command=P_display2)
     DELETE=tkinter.Button(rootp,text="  ΔΙΑΓΡΑΦΗ  ",command=D_display)
@@ -171,22 +147,8 @@ def PAT():
     pat_name.pack()
     sex.pack()
     pat_sex.pack()
-    """dob.pack()
-    pat_dob.pack()
-    bg.pack()
-    pat_BG.pack()
-    c1.pack()
-    pat_contact.pack()
-    c2.pack()
-    pat_contactalt.pack()
-    email.pack()
-    pat_email.pack()
-    ct.pack()
-    pat_CT.pack()
-    addr.pack()
-    pat_address.pack()"""
     SUBMIT.pack()
-    back.pack(side=tkinter.LEFT)
+   
     UPDATE.pack(side=tkinter.LEFT)
     DELETE.pack(side=tkinter.LEFT)
     SEARCH.pack(side=tkinter.LEFT)

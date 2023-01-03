@@ -1,6 +1,7 @@
 import tkinter
 from window2 import menu
 from window2 import menu2
+from docx import Document
 
 #root=login page
 #root1=menu
@@ -39,7 +40,7 @@ def GET():
 
 #LOGIN PAGE WINDOW
 def Entry():
-    global userbox,passbox,login,topframe,bottomframe,image_1
+    global userbox,passbox,login,topframe,bottomframe
     root = tkinter.Tk()
     root.geometry("560x500")
     topframe = tkinter.Frame(root)

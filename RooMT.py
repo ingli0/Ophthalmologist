@@ -91,41 +91,43 @@ def roomDD():
 def exitt():
     rootR.destroy()
 
+
+
 L=None
 L1=None
 def Room_all():
     global rootR,r_head,P_id,id,room_tl,L,i,room_t,room_nol,room_no,L1,j,ratel,rate,da_l,da ,dd_l,dd,Submit,Update,cr
     rootR=tkinter.Tk()
-    rootR.title("ROOM ALLOCATION")
+    rootR.title("ΦΑΡΜΑΚΕΥΤΙΚΗ ΑΓΩΓΗ")
     rootR.geometry("400x400")
-    r_head=tkinter.Label(rootR,text="ROOM ALLOCATION",font='Times 13 bold',fg="dark grey")
+    r_head=tkinter.Label(rootR,text="ΦΑΡΜΑΚΕΥΤΙΚΗ ΑΓΩΓΗ",font='Times 13 bold',fg="dark grey")
     r_head.place(x=75,y=10)
     id=tkinter.Label(rootR,text="ΑΜΚΑ ΑΣΘΕΝΗ")
     id.place(x=30,y=60)
     P_id=tkinter.Entry(rootR)
-    P_id.place(x=100,y=60)
+    P_id.place(x=155,y=60)
     room_tl=tkinter.Label(rootR,text="ΤΥΠΟΣ ΦΑΡΜΑΚΩΝ")
     room_tl.place(x=30, y=100)
     L=['αυθεντικά','φασόν']
     room_t= tkinter.Listbox(rootR, width=22, height=3, selectmode='SINGLE', exportselection=0)
     for i in L:
         room_t.insert(tkinter.END,i)
-    room_t.place(x=105,y=100)
+    room_t.place(x=155,y=100)
     room_nol=tkinter.Label(rootR,text="ID ΡΑΝΤΕΒΟΥ")
     room_nol.place(x=30,y=180)
     L1=['101','102-AA','102-BB','103','104-AA','104-BB','105','206-AAA','206-BBB','206-CCC','207','208-AAA','208-BBB','208-CCC','210','211','302','304-AA','304-BB']
     room_no = tkinter.Listbox(rootR, width=8, height=1, selectmode='SINGLE', exportselection=0)
     for j in L1:
         room_no.insert(tkinter.END,j)
-    room_no.place(x=135,y=180)
+    room_no.place(x=155,y=180)
     ratel=tkinter.Label(rootR, text="ΣΥΜΠΤΩΜΑΤΟΛΟΓΙΑ")
     ratel.place(x=30, y=220)
     rate=tkinter.Entry(rootR)
-    rate.place(x=130, y=220)
+    rate.place(x=155, y=220)
     da_l = tkinter.Label(rootR, text="DATE ADMITTED")
     da_l.place(x=30,y=260)
     da=tkinter.Entry(rootR)
-    da.place(x=140,y=260)
+    da.place(x=155,y=260)
     dd_l = tkinter.Label(rootR, text="ΑΠΟΤΕΛΕΣΜΑΤΑ")
     dd_l.place(x=30, y=300)
     dd =tkinter.Entry(rootR)
