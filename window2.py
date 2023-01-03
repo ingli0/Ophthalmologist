@@ -44,7 +44,7 @@ def menu():
     button2 = tkinter.Button(root1, text="2.ΦΑΡΜΑΚΕΥΤΙΚΗ ΑΓΩΓΗ",bg='light green',fg='black',command=Room_all)
     button3 = tkinter.Button(root1, text="3.ΠΡΟΣΘΗΚΗ ΑΠΟΤΕΛΕΣΜΑΤΩΝ",bg='light blue',fg='black',command=emp_screen)
     button4 = tkinter.Button(root1, text="4.ΠΡΟΣΘΗΚΗ ΡΑΝΤΕΒΟΥ",bg='light green',fg='black',command=appo)
-    button5 = tkinter.Button(root1, text="5.PATIENT BILL",bg='light blue',fg='black',command=BILLING)
+    button5 = tkinter.Button(root1, text="5.ΑΠΟΤΕΛΕΣΜΑΤΑ",bg='light blue',fg='black',command=BILLING)
     button6 = tkinter.Button(root1, text="6.ΕΞΟΔΟΣ",command=ex,bg='light green',fg='black')
     m.place(x=75,y=5)
     button1.pack(side=tkinter.TOP)

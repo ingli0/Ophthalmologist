@@ -1,5 +1,7 @@
 import sqlite3
+import pandas as pd
 import tkinter
+import matplotlib.pyplot as plt
 import tkinter.messagebox
 conn=sqlite3.connect("MDBA.db")
 
@@ -45,9 +47,24 @@ L1=None
 L2=None
 L3=None
 L4=None
+ 
 
 def exitt():
     rootB.destroy()
+
+def show_patients_table():
+    # Get the data from the database
+    cursor = conn.execute('SELECT * FROM PATIENT')
+    data = []
+    for row in cursor:
+        data.append(row)
+
+    # Create a dataframe from the data
+    df = pd.DataFrame(data, columns=['AMKA', 'ONOMA', 'ASFALIA'])
+
+    # Display the dataframe
+    print(df)
+    df.to_csv('test.csv',index=False,encoding='utf-8')
 
 def BILLING():
     global rootB,L1,treat1,P_id,dd,cost,med,med_q,price,treat_1,treat_2,cost_t,j,jj,jjj,jjjj,L2,L3,L4
@@ -108,4 +125,6 @@ def BILLING():
     b2.place(x="100", y="210")
     ee=tkinter.Button(rootB,text="EXIT",command=exitt)
     ee.place(x='310',y='210')
+    show_patients_table_button = tkinter.Button(rootB, text='Show Patients Table', command=show_patients_table)
+    show_patients_table_button.place(x='500',y='210')
     rootB.mainloop()
