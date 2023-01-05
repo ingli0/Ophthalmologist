@@ -1,5 +1,9 @@
 import tkinter
 import sqlite3
+import openpyxl
+import pandas as pd
+
+from docx import Document
 conn=sqlite3.connect("MDBA.db")
 rootAA=None
 
@@ -56,7 +60,7 @@ def appo():
     b1.place(x=20,y=310)
     b2=tkinter.Button(rootAA,text="ΔΙΑΓΡΑΦΗ ΡΑΝΤΕΒΟΥ",command=dela)
     b2.place(x=180,y=310)
-    b4=tkinter.Button(rootAA,text="ΣΗΜΕΡΙΝΑ ΡΑΝΤΕΒΟΥ",command=va)
+    b4=tkinter.Button(rootAA,text="ΣΗΜΕΡΙΝΑ ΡΑΝΤΕΒΟΥ",command=show_apointement_table)
     b4.place(x=320,y=310)
     rootAA.mainloop()
 
@@ -99,6 +103,30 @@ def viewappointment():
             s1=tkinter.Label(rootAP,text=i,fg='green')
             s1.place(x=10,y=85)
 
+def show_apointement_table():
+    # Get the data from the database
+    cursor = conn.execute('SELECT * FROM appointment')
+    data = []
+    for row in cursor:
+        data.append(row)
+
+    # Create a dataframe from the data
+    df = pd.DataFrame(data, columns=['AMKA', 'ΝΟΥΜΕΡΟ ΡΑΒΤΕΒΟΥ', 'ΩΡΑ',"ΜΕΡΑ","ΠΕΡΙΓΡΑΦΗ"])
+
+    # Save the DataFrame to an Excel file
+    df.to_excel('date.xlsx', index=False, encoding='utf-8')
+
+    # Open the Excel file in Word
+    document = openpyxl.load_workbook('date.xlsx')
+    document.save('date.docx')
+
+    # Display the dataframe
+    print(df)
+
+    top = tkinter.Toplevel()
+    top.title("Message")
+    tkinter.Label(top, text="ΤΟ ΑΡΧΕΙΟ ΕΚΤΥΠΩΘΗΚΕ ΣΕ ΑΡΧΕΙΟ").pack()
+    tkinter.Button(top, text="Close", command=top.destroy).pack()
 
 def va():
     global rootAP,e8

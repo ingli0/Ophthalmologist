@@ -24,7 +24,7 @@ def plot_data(patient_id):
     cur.execute("SELECT MERA,AGE FROM employee WHERE PATIENT_ID=?", (patient_id,))
     if (len(p)==0):
         errorS=tkinter.Label(rootB,text="PATIENT RECORD NOT FOUND")
-        errorS.pack()
+        errorS.place(x='120',y="300")
     else:
         # Store the data in variables
         x = []
@@ -52,7 +52,7 @@ def plot_data_presv(patient_id):
     cur.execute("SELECT MERA,SEX FROM employee WHERE PATIENT_ID=?", (patient_id,))
     if (len(p)==0):
         errorS=tkinter.Label(rootB,text="PATIENT RECORD NOT FOUND")
-        errorS.pack()
+        errorS.place(x='120',y="300")
     else:
         # Store the data in variables
         x = []
@@ -80,7 +80,7 @@ def plot_data_uper(patient_id):
     cur.execute("SELECT MERA,SAL FROM employee WHERE PATIENT_ID=?", (patient_id,))
     if (len(p)==0):
         errorS=tkinter.Label(rootB,text="PATIENT RECORD NOT FOUND")
-        errorS.pack()
+        errorS.place(x='120',y="300")
     else:
         # Store the data in variables
         x = []
@@ -108,7 +108,7 @@ def plot_data_astigm(patient_id):
     cur.execute("SELECT MERA,EXP FROM employee WHERE PATIENT_ID=?", (patient_id,))
     if (len(p)==0):
         errorS=tkinter.Label(rootB,text="PATIENT RECORD NOT FOUND")
-        errorS.pack()
+        errorS.place(x='120',y="300")
     else:
         # Store the data in variables
         x = []
