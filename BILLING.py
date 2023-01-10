@@ -279,13 +279,13 @@ def BILLING():
     button = tk.Button(rootB, text='ΜΥΩΠΙΑΣ', command=lambda: plot_data(patient_id_entry.get()))
     button.place(x='35',y='215')
 
-    button = tk.Button(rootB, text='ΠΡΕΣΒΥΩΠΙΑ', command=lambda: plot_data_presv(patient_id_entry.get()))
+    button = tk.Button(rootB, text='ΠΡΕΣΒΥΩΠΙΑΣ', command=lambda: plot_data_presv(patient_id_entry.get()))
     button.place(x='130',y='215')
 
-    button = tk.Button(rootB, text='υπερμετρωπίας', command=lambda: plot_data_uper(patient_id_entry.get()))
+    button = tk.Button(rootB, text='ΥΠΕΡΜΕΤΡΩΠΙΑ', command=lambda: plot_data_uper(patient_id_entry.get()))
     button.place(x='245',y='215')
 
-    button = tk.Button(rootB, text='ΑΣΤΙΓΜΑΤΙΣΟΥ', command=lambda: plot_data_astigm(patient_id_entry.get()))
+    button = tk.Button(rootB, text='ΑΣΤΙΓΜΑΤΙΣΜΟΥ', command=lambda: plot_data_astigm(patient_id_entry.get()))
     button.place(x='360',y='215')
 
     ee=tk.Button(rootB,text="EXIT",command=exitt)
@@ -293,7 +293,7 @@ def BILLING():
     show_patients_table_button = tk.Button(rootB, text='ΟΛΟΙ ΟΙ ΑΣΘΕΝΕΙΣ', command=show_patients_table)
     show_patients_table_button.place(x='20',y='100')
 
-    show_patients_table_button = tk.Button(rootB, text='ΟΛΕΣ ΟΙ ΦΑΡΜΑΚΕΥΤΙΚΕς ΑΓΩΓΕ', command=show_patients_FARMAKA)
+    show_patients_table_button = tk.Button(rootB, text='ΟΛΕΣ ΟΙ ΦΑΡΜΑΚΕΥΤΙΚΕΣ ΑΓΩΓΕΣ', command=show_patients_FARMAKA)
     show_patients_table_button.place(x='150',y='100')
     
     show_patients_table_button = tk.Button(rootB, text='ΟΛΕΣ ΟΙ ΕΞΕΤΑΣΕΙΣ', command=show_patients_EKSETA)
