@@ -61,6 +61,11 @@ conn.execute("""CREATE table employee
              PHONE DECIMAL(10,3) not null,
              idapo DECIMAL(10,3) not null,
              MERA DATE not null,
+             muoar DECIMAL(10,3) not null,
+             uperari  DECIMAL(10,3) not null,
+             presvar DECIMAL(10,3) not null,
+             piesiar DECIMAL(10,3) not null,
+             astar DECIMAL(10,3) not null,
             FOREIGN KEY (PATIENT_ID) REFERENCES PATIENT(PATIENT_ID)
 )""")
 print ("EMPLOYEE CREATED")

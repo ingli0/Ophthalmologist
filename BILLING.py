@@ -21,7 +21,7 @@ def plot_data(patient_id):
     cur = conn.cursor()
     
     p=list(cur.execute('select * from employee where PATIENT_ID=?',(patient_id,)))
-    cur.execute("SELECT MERA,AGE FROM employee WHERE PATIENT_ID=?", (patient_id,))
+    cur.execute("SELECT MERA,AGE,muoar FROM employee WHERE PATIENT_ID=?", (patient_id,))
     if (len(p)==0):
         errorS=tkinter.Label(rootB,text="PATIENT RECORD NOT FOUND")
         errorS.place(x='120',y="300")
@@ -29,9 +29,11 @@ def plot_data(patient_id):
         # Store the data in variables
         x = []
         y = []
+        z = []
         for row in cur:
             x.append(row[0])
             y.append(row[1])
+            z.append(row[2])
 
     # Close the cursor and connection
     cur.close()
@@ -40,7 +42,9 @@ def plot_data(patient_id):
     plt.title("ΕΞΕΛΙΞΗ ΜΥΩΠΙΑΣ")
 
     # Create the plot
-    plt.plot(x, y)
+    plt.plot(x, y, label = "ΔΕΞΙ ΜΑΤΙ")
+    plt.plot(x, z,label = "ΑΡΙΣΤΕΡΟ ΜΑΤΙ")
+    plt.legend()
     plt.show()
 
 def plot_data_presv(patient_id):
@@ -49,7 +53,7 @@ def plot_data_presv(patient_id):
     cur = conn.cursor()
     
     p=list(cur.execute('select * from employee where PATIENT_ID=?',(patient_id,)))
-    cur.execute("SELECT MERA,SEX FROM employee WHERE PATIENT_ID=?", (patient_id,))
+    cur.execute("SELECT MERA,SEX,presvar FROM employee WHERE PATIENT_ID=?", (patient_id,))
     if (len(p)==0):
         errorS=tkinter.Label(rootB,text="PATIENT RECORD NOT FOUND")
         errorS.place(x='120',y="300")
@@ -57,9 +61,11 @@ def plot_data_presv(patient_id):
         # Store the data in variables
         x = []
         y = []
+        z = []
         for row in cur:
             x.append(row[0])
             y.append(row[1])
+            z.append(row[2])
 
     # Close the cursor and connection
     cur.close()
@@ -68,7 +74,9 @@ def plot_data_presv(patient_id):
     plt.title("ΕΞΕΛΙΞΗ ΠΡΕΣΒΥΩΠΙΑΣ")
 
     # Create the plot
-    plt.plot(x, y)
+    plt.plot(x, y, label = "ΔΕΞΙ ΜΑΤΙ")
+    plt.plot(x, z,label = "ΑΡΙΣΤΕΡΟ ΜΑΤΙ")
+    plt.legend()
     plt.show()
 
 def plot_data_uper(patient_id):
@@ -77,7 +85,7 @@ def plot_data_uper(patient_id):
     cur = conn.cursor()
     
     p=list(cur.execute('select * from employee where PATIENT_ID=?',(patient_id,)))
-    cur.execute("SELECT MERA,SAL FROM employee WHERE PATIENT_ID=?", (patient_id,))
+    cur.execute("SELECT MERA,SAL,uperari FROM employee WHERE PATIENT_ID=?", (patient_id,))
     if (len(p)==0):
         errorS=tkinter.Label(rootB,text="PATIENT RECORD NOT FOUND")
         errorS.place(x='120',y="300")
@@ -85,9 +93,11 @@ def plot_data_uper(patient_id):
         # Store the data in variables
         x = []
         y = []
+        z = []
         for row in cur:
             x.append(row[0])
             y.append(row[1])
+            z.append(row[2])
 
     # Close the cursor and connection
     cur.close()
@@ -96,7 +106,9 @@ def plot_data_uper(patient_id):
     plt.title("ΕΞΕΛΙΞΗ υπερμετρωπίας")
 
     # Create the plot
-    plt.plot(x, y)
+    plt.plot(x, y, label = "ΔΕΞΙ ΜΑΤΙ")
+    plt.plot(x, z,label = "ΑΡΙΣΤΕΡΟ ΜΑΤΙ")
+    plt.legend()
     plt.show()
 
 def plot_data_astigm(patient_id):
@@ -105,7 +117,7 @@ def plot_data_astigm(patient_id):
     cur = conn.cursor()
     
     p=list(cur.execute('select * from employee where PATIENT_ID=?',(patient_id,)))
-    cur.execute("SELECT MERA,EXP FROM employee WHERE PATIENT_ID=?", (patient_id,))
+    cur.execute("SELECT MERA,EXP,astar FROM employee WHERE PATIENT_ID=?", (patient_id,))
     if (len(p)==0):
         errorS=tkinter.Label(rootB,text="PATIENT RECORD NOT FOUND")
         errorS.place(x='120',y="300")
@@ -113,9 +125,11 @@ def plot_data_astigm(patient_id):
         # Store the data in variables
         x = []
         y = []
+        z = []
         for row in cur:
             x.append(row[0])
             y.append(row[1])
+            z.append(row[2])
 
     # Close the cursor and connection
     cur.close()
@@ -124,7 +138,9 @@ def plot_data_astigm(patient_id):
     plt.title("ΕΞΕΛΙΞΗ AΣΤΙΓΜΑΤΙΣΜΟΥ")
 
     # Create the plot
-    plt.plot(x, y)
+    plt.plot(x, y, label = "ΔΕΞΙ ΜΑΤΙ")
+    plt.plot(x, z,label = "ΑΡΙΣΤΕΡΟ ΜΑΤΙ")
+    plt.legend()
     plt.show()
 
 
