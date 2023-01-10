@@ -9,7 +9,11 @@ from docx import Document
 conn=sqlite3.connect("MDBA.db")
 
 #variables
-rootB=None
+rootB=tk.Tk()
+rootB.withdraw()
+patient_id_entry = tk.Entry(rootB)
+patient_id_entry.place(x=200, y=150)
+patient_id_entry.pack()
  
 import matplotlib.pyplot as plt
 patient_id_entry = tkinter.Entry(rootB)
@@ -167,11 +171,11 @@ def show_patients_table():
     df = pd.DataFrame(data, columns=['AMKA', 'ONOMA', 'ASFALIA'])
 
     # Save the DataFrame to an Excel file
-    df.to_excel('data.xlsx', index=False, encoding='utf-8')
+    df.to_excel('asthenis.xlsx', index=False, encoding='utf-8')
 
     # Open the Excel file in Word
-    document = openpyxl.load_workbook('data.xlsx')
-    document.save('data.docx')
+    document = openpyxl.load_workbook('asthenis.xlsx')
+    document.save('asthenis.docx')
 
     # Display the dataframe
     print(df)
@@ -181,6 +185,57 @@ def show_patients_table():
     tkinter.Label(top, text="ΤΟ ΑΡΧΕΙΟ ΕΚΤΥΠΩΘΗΚΕ ΣΕ ΑΡΧΕΙΟ").pack()
     tkinter.Button(top, text="Close", command=top.destroy).pack()
 
+ 
+def show_patients_FARMAKA():
+    # Get the data from the database
+    cursor = conn.execute('SELECT * FROM ROOM')
+    data = []
+    for row in cursor:
+        data.append(row)
+
+    # Create a dataframe from the data
+    df = pd.DataFrame(data, columns=['AMKA', 'ΙD ΡΑΝΤΕΒΟΥ', 'ΤΥΠΟΣ ΦΑΡΜΑΚΩΝ','ΣΥΜΠΤΩΜΑΤΟΛΟΓΙΑ','ΗΜΕΡΟΜΙΝΙΑ','ΑΠΟΤΕΛΕΣΜΑΤΑ'])
+
+    # Save the DataFrame to an Excel file
+    df.to_excel('FARMAKA.xlsx', index=False, encoding='utf-8')
+
+    # Open the Excel file in Word
+    document = openpyxl.load_workbook('FARMAKA.xlsx')
+    document.save('FARMAKA.docx')
+
+    # Display the dataframe
+    print(df)
+
+    top = tkinter.Toplevel()
+    top.title("Message")
+    tkinter.Label(top, text="ΤΟ ΑΡΧΕΙΟ ΕΚΤΥΠΩΘΗΚΕ ΣΕ ΑΡΧΕΙΟ").pack()
+    tkinter.Button(top, text="Close", command=top.destroy).pack()
+
+def show_patients_EKSETA():
+    # Get the data from the database
+    cursor = conn.execute('SELECT * FROM employee')
+    data = []
+    for row in cursor:
+        data.append(row)
+
+    # Create a dataframe from the data
+    df = pd.DataFrame(data, columns=['AMKA', 'ONOMA', 'ΠΡΕΣΒΥΩΠΙΑ ΔΕΞΙ','MΥΩΠΙΑ ΔΕΞΙ','ΙΔ ΡΑΝΤΕΒΟΥ','υπερμετρωπία ΔΕΞΙ','AΣΤΙΓΜΑΤΙΣΜΟΣ δεξι','ΚΟΣΤΟΣ','PHONE','idapo','ΗΜΕΡΟΜΗΝΙΑ','Βαθμός μυωπίας αριστερό μάτι','βαθμός υπερμετρωπίας αριστερό μάτι','Βαθμος πρεσβυωπία αριστερό μάτι','Πίεση αριστερού ματιού','βαθμός αστιγματισμού αριστερό'])
+                      
+    # Save the DataFrame to an Excel file
+    df.to_excel('ekseta.xlsx', index=False, encoding='utf-8')
+
+    # Open the Excel file in Word
+    document = openpyxl.load_workbook('ekseta.xlsx')
+    document.save('ekseta.docx')
+
+    # Display the dataframe
+    print(df)
+
+    top = tkinter.Toplevel()
+    top.title("Message")
+    tkinter.Label(top, text="ΤΟ ΑΡΧΕΙΟ ΕΚΤΥΠΩΘΗΚΕ ΣΕ ΑΡΧΕΙΟ").pack()
+    tkinter.Button(top, text="Close", command=top.destroy).pack()
+   
 def create_patient_report(df):
     # Create a new Word document
     document = Document()
@@ -237,6 +292,12 @@ def BILLING():
     ee.place(x='310',y='310')
     show_patients_table_button = tk.Button(rootB, text='ΟΛΟΙ ΟΙ ΑΣΘΕΝΕΙΣ', command=show_patients_table)
     show_patients_table_button.place(x='20',y='100')
+
+    show_patients_table_button = tk.Button(rootB, text='ΟΛΕΣ ΟΙ ΦΑΡΜΑΚΕΥΤΙΚΕς ΑΓΩΓΕ', command=show_patients_FARMAKA)
+    show_patients_table_button.place(x='150',y='100')
+    
+    show_patients_table_button = tk.Button(rootB, text='ΟΛΕΣ ΟΙ ΕΞΕΤΑΣΕΙΣ', command=show_patients_EKSETA)
+    show_patients_table_button.place(x='20',y='130')
      
     SEARCH=tk.Button(rootB,text="  ΟΛΑ ΤΑ ΡΑΝΤΕΒΟΥ ΑΣΘΕΝΗ  ",command=P_display_res)
     SEARCH.place(x='20',y='60')
