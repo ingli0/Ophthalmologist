@@ -18,7 +18,7 @@ def set():
     conn = sqlite3.connect("MDBA.db")
     conn.execute("Insert into appointment values(?,?,?,?,?)",(p1,p3,p4,p5,p6,))
     conn.commit()
-    tkinter.messagebox.showinfo("MEDANTA DATABASE SYSTEM", "APPOINTMENT SET SUCCSESSFULLY")
+    tkinter.messagebox.showinfo("MEDANTA DATABASE SYSTEM", "ΤΟ ΡΑΝΤΕΒΟΥ ΠΡΟΣΘΕΘΗΚΕ")
 
 
 def appo():
@@ -69,11 +69,11 @@ def remove():
     edd=str(e7.get())
     v=list(conn.execute("select * from appointment where AP_NO=?", (edd,)))
     if (len(v)==0):
-        errorD = tkinter.Label(rootAA, text="PATIENT APPOINTMENT NOT FIXED",fg="red")
+        errorD = tkinter.Label(rootAA, text="ΔΕΝ ΒΡΕΘΗΚΕ ΡΑΝΤΕΒΟΥ",fg="red")
         errorD.place(x=20,y=420)
     else:
         conn.execute('DELETE FROM PATIENT where PATIENT_ID=?',(edd,))
-        disd1=tkinter.Label(rootAA,text="PATIENT APPOINTMENT DELETED",fg='green')
+        disd1=tkinter.Label(rootAA,text="ΤΟ ΡΑΝΤΕΒΟΥ ΔΙΑΓΡΑΦΤΗΚΕ",fg='green')
         disd1.place(x=20,y=420)
         conn.commit()
 
@@ -81,7 +81,7 @@ def remove():
 
 def dela():
     global e1,e7
-    l3 = tkinter.Label(rootAA, text="ENTER APPOINTMENT NO TO DELETE")
+    l3 = tkinter.Label(rootAA, text="ΥΠΕΒΑΛΕ ΝΟ. ΡΑΝΤΕΒΟΥ ΓΙΑ ΔΙΑΓΡΑΦΗ")
     l3.place(x=20, y=340)
     e7=tkinter.Entry(rootAA)
     e7.place(x=20,y=360)
@@ -95,7 +95,7 @@ def viewappointment():
     ap=str(e8.get())
     vv = list(conn.execute("select * from appointment where AP_DATE=?", (ap,)))
     if (len(vv) == 0):
-        errorD = tkinter.Label(rootAA, text="NO APPOINTMENT FOR TODAY", fg="red")
+        errorD = tkinter.Label(rootAA, text="ΔΕΝ ΥΠΑΡΧΟΥΝ ΡΑΝΤΒΕΟΥ", fg="red")
         errorD.place(x=20, y=420)
     else:
         s=conn.execute("Select PATIENT_ID,NAME,AP_NO,EMP_NAME,AP_DATE,AP_TIME from PATIENT NATURAL JOIN employee NATURAL JOIN appointment where AP_DATE=?",(ap,))
@@ -132,7 +132,7 @@ def va():
     global rootAP,e8
     rootAP=tkinter.Tk()
     rootAP.geometry("500x550")
-    rootAP.title("TODAYS APPOINTMENTS")
+    rootAP.title("ΡΑΝΤΕΕΒΟΥ")
     h1=tkinter.Label(rootAP,text="ENTER DATE TO VIEW APPOINTMENTS")
     h1.place(x=20,y=20)
     e8=tkinter.Entry(rootAP)

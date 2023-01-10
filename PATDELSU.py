@@ -18,7 +18,7 @@ def Search_button():
     inp_s=entry.get()
     p=list(c1.execute('select * from PATIENT where PATIENT_ID=?',(inp_s,)))
     if (len(p)==0):
-        errorS=tkinter.Label(rootS,text="PATIENT RECORD NOT FOUND")
+        errorS=tkinter.Label(rootS,text="ΔΕΝ ΒΡΕΘΗΚΕ ΑΜΚΑ")
         errorS.pack()
     else:
         t=c1.execute('SELECT * FROM PATIENT where PATIENT_ID=?',(inp_s,));
@@ -45,7 +45,7 @@ def RESULT_Search_button():
     inp_s=entry.get()
     p=list(c1.execute('select * from appointment where PATIENT_ID=?',(inp_s,)))
     if (len(p)==0):
-        errorS=tkinter.Label(rootS,text="PATIENT RECORD NOT FOUND")
+        errorS=tkinter.Label(rootS,text="ΔΕΝ ΒΡΕΘΗΚΕ ΑΜΚΑ")
         errorS.pack()
     else:
         t=c1.execute('SELECT * FROM appointment where PATIENT_ID=?',(inp_s,));
@@ -79,7 +79,7 @@ def Search_button2():
     inp_s=entry.get()
     p=list(c1.execute('select * from PATIENT where NAME=?',(inp_s,)))
     if (len(p)==0):
-        errorS=tkinter.Label(rootS,text=" RECORD NOT FOUND")
+        errorS=tkinter.Label(rootS,text=" ΔΕΝ ΒΡΕΘΗΚΕ ΟΝΟΜΑ")
         errorS.pack()
     else:
         t=c1.execute('SELECT * FROM PATIENT where NAME=?',(inp_s,));
@@ -107,14 +107,14 @@ def P_display():
     global rootS,head,inp_s,entry,searchB
     rootS=tkinter.Tk()
     rootS.title("SEARCH WINDOW")
-    head=tkinter.Label(rootS,text="ENTER PATIENT ID TO SEARCH",fg="red")
+    head=tkinter.Label(rootS,text="ΥΠΕΒΑΛΕ ΑΜΚΑ ΓΙΑ ΑΝΑΖΗΤΗΣΗ",fg="red")
     entry=tkinter.Entry(rootS)
-    searchB=tkinter.Button(rootS,text='SEARCH',command=Search_button)
+    searchB=tkinter.Button(rootS,text='ΑΝΑΖΗΤΗΣΗ',command=Search_button)
     menubar= tkinter.Menu(rootS)
     filemenu = tkinter.Menu(menubar, tearoff=0)
-    filemenu.add_command(label="NEW", command=P_display)
+    filemenu.add_command(label="ΝΕΟ", command=P_display)
     filemenu.add_separator()
-    filemenu.add_command(label="EXIT", command=eXO)
+    filemenu.add_command(label="ΕΞΟΔΟΣ", command=eXO)
     menubar.add_cascade(label="File", menu=filemenu)
     rootS.config(menu=menubar)
     head.pack()
@@ -127,9 +127,9 @@ def P_display_res():
     global rootS,head,inp_s,entry,searchB
     rootS=tkinter.Tk()
     rootS.title("SEARCH WINDOW")
-    head=tkinter.Label(rootS,text="ENTER PATIENT ID TO SEARCH",fg="red")
+    head=tkinter.Label(rootS,text="ΥΠΕΒΑΛΕ ΑΜΚΑ ΓΙΑ ΑΝΑΖΗΤΗΣΗ",fg="red")
     entry=tkinter.Entry(rootS)
-    searchB=tkinter.Button(rootS,text='SEARCH',command=RESULT_Search_button)
+    searchB=tkinter.Button(rootS,text='ΑΝΑΖΗΤΗΣΗ',command=RESULT_Search_button)
     menubar= tkinter.Menu(rootS)
     filemenu = tkinter.Menu(menubar, tearoff=0)
     filemenu.add_command(label="NEW", command=P_display)
@@ -146,9 +146,9 @@ def P_display2():
     global rootS,head,inp_s,entry,searchB
     rootS=tkinter.Tk()
     rootS.title("SEARCH WINDOW")
-    head=tkinter.Label(rootS,text="ENTER PATIENT ID TO SEARCH",fg="red")
+    head=tkinter.Label(rootS,text="ΥΠΕΒΑΛΕ ΑΜΚΑ ΓΙΑ ΑΝΑΖΗΤΗΣΗ",fg="red")
     entry=tkinter.Entry(rootS)
-    searchB=tkinter.Button(rootS,text='SEARCH',command=Search_button2)
+    searchB=tkinter.Button(rootS,text='ΑΝΑΖΗΤΗΣΗ',command=Search_button2)
     menubar= tkinter.Menu(rootS)
     filemenu = tkinter.Menu(menubar, tearoff=0)
     filemenu.add_command(label="NEW", command=P_display2)
@@ -173,11 +173,11 @@ def Delete_button():
     inp_d = entry1.get()
     p=list(conn.execute("select * from PATIENT where PATIENT_ID=?", (inp_d,)))
     if (len(p)==0):
-        errorD = tkinter.Label(rootD, text="PATIENT RECORD NOT FOUND")
+        errorD = tkinter.Label(rootD, text="ΔΕΝ ΒΡΕΘΗΚΕ ΑΜΚΑ")
         errorD.pack()
     else:
         conn.execute('DELETE FROM PATIENT where PATIENT_ID=?',(inp_d,))
-        disd1=tkinter.Label(rootD,text="PATIENT RECORD DELETED",fg='green')
+        disd1=tkinter.Label(rootD,text="Ο ΑΣΘΕΝΗΣ ΔΙΑΓΡΆΦΗΚΕ",fg='green')
         disd1.pack()
         conn.commit()
 
@@ -187,7 +187,7 @@ def D_display():
     global rootD,headD,inp_d,entry1,DeleteB
     rootD=tkinter.Tk()
     rootD.title("DELETE WINDOW")
-    headD=tkinter.Label(rootD,text="ENTER PATIENT ID TO DELETE",fg="blue")
+    headD=tkinter.Label(rootD,text="ΥΠΕΒΑΛΕ ΑΜΚΑ ΓΙΑ ΑΝΑΖΗΤΗΣΗ",fg="blue")
     entry1=tkinter.Entry(rootD)
     DeleteB=tkinter.Button(rootD,text="DELETE",command=Delete_button)
     headD.pack()
@@ -219,11 +219,11 @@ def up1():
     p = list(conn.execute("Select * from PATIENT where PATIENT_ID=?", (u1,)))
     if len(p) != 0:
         conn.execute('UPDATE PATIENT SET NAME=?,SEX=?  where PATIENT_ID=?', (u1, u2, u3 ))
-        tkinter.messagebox.showinfo("MEDANTA DATABSE SYSTEM", "DETAILS UPDATED INTO DATABASE")
+        tkinter.messagebox.showinfo("MEDANTA DATABSE SYSTEM", "ΤΑ ΔΕΔΟΜΕΝΑ ΕΝΗΜΕΡΟΘΗΚΑΝ")
         conn.commit()
 
     else:
-        tkinter.messagebox.showinfo("MEDANTA DATABSE SYSTEM", "PATIENT IS NOT REGISTERED")
+        tkinter.messagebox.showinfo("MEDANTA DATABSE SYSTEM", "Ο ΑΣΘΕΜΗΣ ΔΕΝ ΕΧΕΙ ΕΓΓΡΑΦΕΊ")
 
 labelu=None
 bu1=None

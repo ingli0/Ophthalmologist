@@ -79,40 +79,14 @@ def emp_screen():
     t10=tkinter.Entry(rootE)
     t10.place(x=240,y=110)
 
-    b1=tkinter.Button(rootE,text="SAVE",command=inp)
+    b1=tkinter.Button(rootE,text="ΑΠΟΘΗΚΕΥΣΗ",command=inp)
     b1.place(x=60,y=350)
-    b2=tkinter.Button(rootE,text="DELETE EMPLOYEE",command=delo)
-    b2.place(x=110,y=350)
-    b3=tkinter.Button(rootE,text="EXIT",command=ex)
+    
+    b3=tkinter.Button(rootE,text="ΕΞΟΔΟΣ",command=ex)
     b3.place(x=230,y=350)
     rootE.mainloop()
 
-def delling():
-    global d1,de
-    de=str(d1.get())
-    conn = sqlite3.connect("MDBA.db")
-    p = list(conn.execute("select * from employee where EMP_ID=?", (de,)))
-    if (len(p) != 0):
-        conn.execute("DELETE from employee where EMP_ID=?", (de,))
-        dme = tkinter.Label(rootDE, text="EMPLOYEE DELETED FROM DATABASE", fg="green")
-        dme.place(x=20, y=100)
-        conn.commit()
-    else:
-        error = tkinter.Label(rootDE, text="EMPLOYEE DOESN'T EXIST", fg="Red")
-        error.place(x=20, y=100)
-
+ 
 rootDE=None
-def delo():
-    global rootDE,d1
-    rootDE=tkinter.Tk()
-    rootDE.geometry("250x250")
-    rootDE.title("EMPLOYEE DELETION")
-    h1=tkinter.Label(rootDE,text="ENTER EMPLOYEE ID TO DELETE :")
-    h1.place(x=20,y=10)
-    d1=tkinter.Entry(rootDE)
-    d1.place(x=20,y=40)
-    B1=tkinter.Button(rootDE,text="DELETE",command=delling)
-    B1.place(x=20,y=70)
-    rootDE.mainloop()
 
 

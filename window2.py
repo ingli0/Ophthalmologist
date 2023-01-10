@@ -38,8 +38,8 @@ def menu():
     global root1,button1,button2,button3,button4,button5,m,button6
     root1=tkinter.Tk()
     root1.geometry("280x350")
-    root1.title("ΚΥΡΙΟ ΜΕΝΟΥ")
-    m=tkinter.Label(root1,text="ΜΕΝΟΥ",fg='blue',font='Times 16 bold italic',bg='black')
+    root1.title("ΚΥΡΙΟ ΙΑΤΡΟΥ")
+    m=tkinter.Label(root1,text="ΜΕΝΟΥ",fg='black',font='Times 16 bold italic',bg='green')
     button1=tkinter.Button(root1,text="1.ΕΓΓΡΑΦΗ ΑΣΘΕΝΗ",command=PAT,bg='light blue',fg='black')
     button2 = tkinter.Button(root1, text="2.ΦΑΡΜΑΚΕΥΤΙΚΗ ΑΓΩΓΗ",bg='light green',fg='black',command=Room_all)
     button3 = tkinter.Button(root1, text="3.ΠΡΟΣΘΗΚΗ ΑΠΟΤΕΛΕΣΜΑΤΩΝ",bg='light blue',fg='black',command=emp_screen)
@@ -65,8 +65,8 @@ def menu2():
     global root1,button7,button10,n,button12
     root1=tkinter.Tk()
     root1.geometry("280x350")
-    root1.title("ΚΥΡΙΟ ΜΕΝΟΥ")
-    n=tkinter.Label(root1,text="ΜΕΝΟΥ",fg='blue',font='Times 16 bold italic',bg='black')
+    root1.title("ΚΥΡΙΟ ΥΠΑΛΗΛΟΥ")
+    n=tkinter.Label(root1,text="ΜΕΝΟΥ",fg='black',font='Times 16 bold italic',bg='WHITE')
     button7=tkinter.Button(root1,text="1.ΕΓΓΡΑΦΗ ΑΣΘΕΝΗ",command=PAT,bg='light blue',fg='black')
     button10 = tkinter.Button(root1, text="2.ΠΡΟΣΘΗΚΗ ΡΑΝΤΕΒΟΥ",bg='light green',fg='black',command=appo)
     button12 = tkinter.Button(root1, text="3.ΕΞΟΔΟΣ",command=ex,bg='light green',fg='black')

@@ -25,13 +25,13 @@ def GET():
     S1=userbox.get()
     S2=passbox.get()
     if(S1=='ingli' and S2=='paxidi'):
-        flag=1
+         
         menu()
     elif(S1=='1' and S2=='2'):
-        flag=1
+        
         menu()
     elif(S1=='2' and S2=='3'):
-        flag=2
+         
         menu2()
     else:
         error=tkinter.Label(bottomframe,text="ΛΑΘΟΣ  ΟΝΟΜΑ ΧΡΗΣΤΗ / ΚΩΔΙΚΟΣ \n ΔΟΚΙΜΑΣΕ ΞΑΝΑ",fg="red",font="bold")
