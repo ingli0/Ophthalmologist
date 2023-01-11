@@ -24,10 +24,7 @@ def GET():
     global userbox,passbox,error
     S1=userbox.get()
     S2=passbox.get()
-    if(S1=='ingli' and S2=='paxidi'):
-         
-        menu()
-    elif(S1=='1' and S2=='2'):
+    if(S1=='1' and S2=='2'):
         
         menu()
     elif(S1=='2' and S2=='3'):
