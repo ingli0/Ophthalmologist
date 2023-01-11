@@ -1,7 +1,15 @@
 import sqlite3
 import tkinter
 import tkinter.messagebox
+ 
+from PIL import ImageTk, Image
+from tkinter import filedialog
+import os
 conn=sqlite3.connect("MDBA.db")
+
+
+
+
 
 P_id=None
 rootR=None
@@ -99,7 +107,7 @@ def Room_all():
     global rootR,r_head,P_id,id,room_tl,L,i,room_t,room_nol,room_no,L1,j,ratel,rate,da_l,da ,dd_l,dd,Submit,Update,cr
     rootR=tkinter.Tk()
     rootR.title("ΦΑΡΜΑΚΕΥΤΙΚΗ ΑΓΩΓΗ")
-    rootR.geometry("400x400")
+    rootR.geometry("780x600")
     r_head=tkinter.Label(rootR,text="ΦΑΡΜΑΚΕΥΤΙΚΗ ΑΓΩΓΗ",font='Times 13 bold',fg="dark grey")
     r_head.place(x=75,y=10)
     id=tkinter.Label(rootR,text="ΑΜΚΑ ΑΣΘΕΝΗ")
@@ -138,4 +146,17 @@ def Room_all():
     
     ee=tkinter.Button(rootR,text="ΕΞΟΔΟΣ",command=exitt)
     ee.place(x=330,y=340)
+    dd_4 = tkinter.Label(rootR, text="Φάρμακα κατά των οφθαλμολογικών λοιμώξεων: Nevanac.Ενεργά Συστατικά:Νεπαφενάκη,της εταιρείας Novartis Europharm Ltd")
+    dd_4.place(x=30, y=400) 
+    dd_5 = tkinter.Label(rootR, text="Κορτικοστεροειδή: DEXACOLLYRE. Ενεργά Συστατικά:Δεξαμεθαζόνη, της εταιρείας Cooper Α.Ε.")
+    dd_5.place(x=30, y=430) 
+    dd_6 = tkinter.Label(rootR, text="Αντιγλαυκωματικά: Azarga.Ενεργά Συστατικά: Βρινζολαμίδη-Τιμολόλη, της εταιρείας Novartis Europharm Ltd")
+    dd_6.place(x=30, y=460) 
+    dd_7 = tkinter.Label(rootR, text="Αποσυμφορητικά και αντιαλλεργικά: ALLERGOTIN. Ενεργά Συστατικά:Cromoglicate sodium, της εταιρείας Cooper Α.Ε.")
+    dd_7.place(x=30, y=490) 
+    dd_8 = tkinter.Label(rootR, text="Τοπικά αναισθητικά: Mepivakate.Ενεργά Συστατικά:Μεπιβακαίνη,της εταιρείας Α.ΔΗ Φαρμ.Μ.Ε.Π.Ε.μάκων")
+    dd_8.place(x=30, y=520) 
+    dd_9 = tkinter.Label(rootR, text="Υποκατάστατα δακρύων και παρεμφερή προϊόντα: Duratears.Ενεργά Συστατικά: Ορυκτέλαιο,της εταιρείας Alcon Laboratories Α.Ε.Β.Ε")
+    dd_9.place(x=30, y=550) 
+
     rootR.mainloop()

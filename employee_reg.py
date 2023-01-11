@@ -34,7 +34,7 @@ def emp_screen():
     global rootE,t1,t2,r1,r2,t3,lb,t4,t5,t6,t7,var,t8,t9,t10,t11,t12,t13,t14,t15,t16
     rootE=tkinter.Tk()
     rootE.title("AΠΟΤΕΛΕΣΜΑΤΑ ΕΞΕΤΑΣΕΩΝ")
-    rootE.geometry('400x520')
+    rootE.geometry('600x720')
     var = tkinter.StringVar(master=rootE)
     H=tkinter.Label(rootE,text="AΠΟΤΕΛΕΣΜΑΤΑ ΕΞΕΤΑΣΕΩΝ",fg='grey',font="Arial 10 bold")
     H.place(x=50,y=20)
@@ -120,6 +120,26 @@ def emp_screen():
     
     b3=tkinter.Button(rootE,text="ΕΞΟΔΟΣ",command=ex)
     b3.place(x=230,y=500)
+    
+
+    dd_4 = tkinter.Label(rootE, text="Για βαθμο μυωπίας >=1,25 φακός γυαλιών 50Ε")
+    dd_4.place(x=50, y=550) 
+
+    dd_5 = tkinter.Label(rootE, text="Για βαθμο μυωπίας >=1,25 φακός γυαλιών 50Ε")
+    dd_5.place(x=50, y=580) 
+
+    dd_6 = tkinter.Label(rootE, text="Για βαθμο μυωπίας >=2 φακός γυαλιών 100Ε")
+    dd_6.place(x=50, y=610) 
+
+    dd_7 = tkinter.Label(rootE, text="Για βαθμο μυωπίας >= 10 φακός γυαλιών 150Ε")
+    dd_7.place(x=50, y=640) 
+
+    dd_8 = tkinter.Label(rootE, text="Για βαθμο μυωπίας >= 15 φακός γυαλιών 150Ε")
+    dd_8.place(x=50, y=670) 
+
+    dd_8 = tkinter.Label(rootE, text="Για βαθμο μυωπίας = 20 φακός γυαλιών 200Ε  ")
+    dd_8.place(x=50, y=700) 
+
     rootE.mainloop()
 
  
